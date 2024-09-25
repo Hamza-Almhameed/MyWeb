@@ -1,0 +1,194 @@
+:root {
+    --main-bg-color: rgb(221, 221, 221);
+    --borders-color: black;
+    --hover-bg-color: rgb(236, 236, 236);
+    --text-hover-color: white;
+    --toolbar-text-hover-color: #00c0fa;
+    --element-hover-color: #5f5cdd;
+}
+
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    user-select: none;
+    transition-duration: 600ms;
+}
+
+body{
+    background-color: var(--main-bg-color);
+}
+
+#toolbar{
+    display: flex;
+    flex-direction: row;
+    float: right;
+    border-right: 1px var(--borders-color) solid;
+    width: 80%;
+    height: 10vh;
+}
+
+.editorSelectionDiv{
+    border-right: solid var(--borders-color) 1px;
+    width: 25%;
+    overflow: hidden;
+}
+
+.editorSelection{
+    text-align: center;
+    font-family: arial;
+    font-size: xx-large;
+    font-weight: 100;
+    height: 100%;
+    padding-top: 4%;
+}
+
+#editWindow{
+    border: solid var(--borders-color) 1px;
+    height: 100vh;
+    width: 20%;
+    position: absolute;
+    top: 0%;
+    overflow: scroll;
+}
+
+.element{
+    text-align: center;
+    font-family: arial;
+    font-size: 27px;
+    font-weight: 100;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+
+#workspace{
+    border: var(--borders-color) solid 1px;
+    width: 80%;
+    height: 90vh;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    overflow: scroll;
+    z-index: -999999999;
+    background-color: rgb(253, 253, 253);
+}
+
+#workspace > *{
+    transition: none;
+}
+
+.hidden{
+    display: none;
+}
+
+.property{
+    font-family: arial;
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.propertyRange{
+    width: 100%;
+    margin-bottom: 20px;   
+}
+
+#deleteElement{
+    color: rgb(255, 118, 118);
+}
+
+#allSidesRadiusInput, #allSidesMarginInput, #allSidesPaddingInput{
+    display: none;
+}
+
+#hoverDiv{
+    position: absolute;
+    border-right: 3px dashed red;
+    border-left: 3px dashed black;
+    border-top: 3px dashed green;
+    border-bottom: 3px dashed blue;
+}
+
+.propertyValue{
+    font-family: arial;
+    text-align: center;
+    font-size: x-large;
+}
+
+#previewBox{
+    width: 18%;
+    height: 16vh;
+    background-color: rgb(88, 88, 88);
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    z-index: 999999999999999;
+    background-image: url();
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    opacity: .8;
+}
+
+
+
+
+
+
+
+
+/*Animations*/
+.editorSelectionDiv:hover{
+    transition-duration: 600ms;
+    transition-timing-function: ease-in-out;
+    background-color: var(--toolbar-text-hover-color);
+}
+
+.editorSelection:hover{
+    color: var(--text-hover-color);
+    background-color: var(--toolbar-text-hover-color);
+}
+
+.element:hover{
+    font-size: 33px;
+    background-color: var(--element-hover-color);
+    color: var(--text-hover-color);
+}
+
+#toolbar:hover, #editWindow:hover{
+    background-color: var(--hover-bg-color);
+}
+
+
+
+
+/* Responsive */
+@media only screen and (max-width: 700px) {
+    .element{
+        font-size: medium;
+    }
+    .element:hover{
+        font-size: large;
+    }
+    .editorSelection{
+        font-size: large;
+    }
+    .property{
+        font-size: medium;
+    }
+    #editWindow{
+        width: 25%;
+    }
+    #workspace, .editorSelection, .editorSelectionDiv{
+        width: 74%;
+        transform: translateX(6%);
+    }
+}
+
